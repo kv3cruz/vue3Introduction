@@ -1,7 +1,7 @@
 app.component('review-form', {
-    template:
-    /*html*/
-    `<form class="review-form" @submit.prevent="onSubmit">
+   template:
+      /*html*/
+      `<form class="review-form" @submit.prevent="onSubmit">
       <h3>Leave a review</h3>
       <label for="name">Name:</label>
       <input id="name" v-model="name">
@@ -20,24 +20,28 @@ app.component('review-form', {
   
       <input class="button" type="submit" value="Submit">
     </form>`,
-    data() {
+   data() {
       return {
-        name: '',
-        review: '',
-        rating: null
+         name: '',
+         review: '',
+         rating: null
       }
-    },
-    methods: {
-        onSubmit() {
-            let productReview = {
-                name: this.name,
-                review: this.review,
-                rating: this.rating
-            }
-            this.$emit('review-submitted',productReview)
-            this.name =''
-            this.review =''
-            this.rating = ''
-        }
-    },
-  })
+   },
+   methods: {
+      onSubmit() {
+         if(this.name === ''  || this.review === '' || this.rating === null){
+            alert('Review is incomplete. Please fill out every field.')
+            return
+         }
+         let productReview = {
+            name: this.name,
+            review: this.review,
+            rating: this.rating
+         }
+         this.$emit('review-submitted', productReview)
+         this.name = ''
+         this.review = ''
+         this.rating = ''
+      }
+   }
+})

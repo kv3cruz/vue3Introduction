@@ -1,0 +1,9 @@
+{
+   "vetur.validation.template": false,
+   "eslint.validate": ["vue", "html", "javascript"],
+   "editor.formatOnSave": false,
+   "editor.tabSize": 3,
+   "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+   }
+}
